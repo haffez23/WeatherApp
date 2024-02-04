@@ -25,12 +25,7 @@ class OverviewWeatherFactory {
             networkManager: NetworkManagerFactory.make()
         )
         
-        let overviewPresenter = OverviewPresenter(
-            view: vc,
-            viewModel: OverviewViewModel(
-                title: "Weather"
-            )
-        )
+        let overviewPresenter = OverviewPresenter(view: vc)
         
         let overviewController = OverviewController(
             weatherFetcher: WeatherFetcher(

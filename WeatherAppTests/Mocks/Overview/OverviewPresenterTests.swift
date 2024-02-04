@@ -15,8 +15,7 @@ class OverviewPresenterTests: QuickSpec {
         describe("OverviewPresenter") {
             let overviewViewableMock = OverviewViewableMock()
             let presenter = OverviewPresenter(
-                view: overviewViewableMock,
-                viewModel: OverviewViewModel(title: "test")
+                view: overviewViewableMock
             )
             
             presenter.present(overview: "test")
