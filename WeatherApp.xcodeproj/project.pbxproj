@@ -38,6 +38,12 @@
 		C65166522B6F7B1300ACE106 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651664F2B6F7B1300ACE106 /* Utils.swift */; };
 		C65166532B6F7B1300ACE106 /* NetworkManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65166502B6F7B1300ACE106 /* NetworkManagerFactory.swift */; };
 		C65166562B6F7B3500ACE106 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C65166552B6F7B3500ACE106 /* Alamofire */; };
+		C651665B2B6F9C7800ACE106 /* NetworkManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651665A2B6F9C7800ACE106 /* NetworkManagerMock.swift */; };
+		C651665D2B6FB92000ACE106 /* ErrorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651665C2B6FB92000ACE106 /* ErrorMock.swift */; };
+		C651665F2B6FBD9100ACE106 /* WeatherRemoteDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651665E2B6FBD9100ACE106 /* WeatherRemoteDataFetcher.swift */; };
+		C65166612B6FBDCF00ACE106 /* WeatherLocalDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65166602B6FBDCF00ACE106 /* WeatherLocalDataFetcher.swift */; };
+		C65166642B6FBE6800ACE106 /* WeatherLocalDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65166632B6FBE6800ACE106 /* WeatherLocalDataStore.swift */; };
+		C65166672B6FBEBB00ACE106 /* LocalDataStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65166662B6FBEBB00ACE106 /* LocalDataStorable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +89,12 @@
 		C651664E2B6F7B1300ACE106 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C651664F2B6F7B1300ACE106 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		C65166502B6F7B1300ACE106 /* NetworkManagerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerFactory.swift; sourceTree = "<group>"; };
+		C651665A2B6F9C7800ACE106 /* NetworkManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerMock.swift; sourceTree = "<group>"; };
+		C651665C2B6FB92000ACE106 /* ErrorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMock.swift; sourceTree = "<group>"; };
+		C651665E2B6FBD9100ACE106 /* WeatherRemoteDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRemoteDataFetcher.swift; sourceTree = "<group>"; };
+		C65166602B6FBDCF00ACE106 /* WeatherLocalDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocalDataFetcher.swift; sourceTree = "<group>"; };
+		C65166632B6FBE6800ACE106 /* WeatherLocalDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocalDataStore.swift; sourceTree = "<group>"; };
+		C65166662B6FBEBB00ACE106 /* LocalDataStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataStorable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +187,7 @@
 		C651660E2B6D36F100ACE106 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				C65166622B6FBE3700ACE106 /* Stores */,
 				C65166262B6E3ECF00ACE106 /* Core */,
 				C65166102B6D373E00ACE106 /* Common */,
 				C651660F2B6D36FD00ACE106 /* Overview */,
@@ -191,6 +204,8 @@
 				C651661E2B6D5D7800ACE106 /* OverviewViewPresenter.swift */,
 				C65166202B6D5E0400ACE106 /* OverviewViewModel.swift */,
 				C65166222B6D5E4000ACE106 /* OverviewFetcher.swift */,
+				C651665E2B6FBD9100ACE106 /* WeatherRemoteDataFetcher.swift */,
+				C65166602B6FBDCF00ACE106 /* WeatherLocalDataFetcher.swift */,
 			);
 			path = Overview;
 			sourceTree = "<group>";
@@ -233,6 +248,7 @@
 		C651662A2B6E496400ACE106 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				C65166592B6F9C4900ACE106 /* Networking */,
 				C65166582B6F9BFF00ACE106 /* Reachability */,
 			);
 			path = Core;
@@ -287,6 +303,24 @@
 				C651663C2B6E5A2300ACE106 /* NetworkReachabilityStarterMock.swift */,
 			);
 			path = Reachability;
+			sourceTree = "<group>";
+		};
+		C65166592B6F9C4900ACE106 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C651665A2B6F9C7800ACE106 /* NetworkManagerMock.swift */,
+				C651665C2B6FB92000ACE106 /* ErrorMock.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		C65166622B6FBE3700ACE106 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				C65166632B6FBE6800ACE106 /* WeatherLocalDataStore.swift */,
+				C65166662B6FBEBB00ACE106 /* LocalDataStorable.swift */,
+			);
+			path = Stores;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,10 +434,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C65166232B6D5E4000ACE106 /* OverviewFetcher.swift in Sources */,
+				C65166642B6FBE6800ACE106 /* WeatherLocalDataStore.swift in Sources */,
 				C65165DC2B6D30C000ACE106 /* AppDelegate.swift in Sources */,
+				C65166672B6FBEBB00ACE106 /* LocalDataStorable.swift in Sources */,
+				C65166612B6FBDCF00ACE106 /* WeatherLocalDataFetcher.swift in Sources */,
 				C65166512B6F7B1300ACE106 /* NetworkManager.swift in Sources */,
 				C65166532B6F7B1300ACE106 /* NetworkManagerFactory.swift in Sources */,
 				C65166162B6D3D4700ACE106 /* ViewDidLoadControllable.swift in Sources */,
+				C651665F2B6FBD9100ACE106 /* WeatherRemoteDataFetcher.swift in Sources */,
 				C65166142B6D3C1000ACE106 /* OverviewWeatherFactory.swift in Sources */,
 				C651661F2B6D5D7800ACE106 /* OverviewViewPresenter.swift in Sources */,
 				C65166212B6D5E0400ACE106 /* OverviewViewModel.swift in Sources */,
@@ -419,9 +457,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C65166472B6E713200ACE106 /* WeatherLocalDataFetcherMock.swift in Sources */,
+				C651665D2B6FB92000ACE106 /* ErrorMock.swift in Sources */,
 				C65166432B6E5E5A00ACE106 /* WeatherFetcherTests.swift in Sources */,
 				C65166452B6E5F5C00ACE106 /* OverviewPresenterMock.swift in Sources */,
 				C65165F32B6D30C300ACE106 /* WeatherAppTests.swift in Sources */,
+				C651665B2B6F9C7800ACE106 /* NetworkManagerMock.swift in Sources */,
 				C651663F2B6E5AF800ACE106 /* OverviewPresenterTests.swift in Sources */,
 				C651662C2B6E499000ACE106 /* NetworkReachabilityMock.swift in Sources */,
 				C651663D2B6E5A2300ACE106 /* NetworkReachabilityStarterMock.swift in Sources */,
