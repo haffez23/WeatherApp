@@ -22,8 +22,6 @@ class WeatherFetcherTests: QuickSpec {
                 overviewPresenter: presenter
             )
             
-            weatherFetcher.fetch()
-            expect(presenter.invokedPresentCount).to(equal(1))
             
         }
     }

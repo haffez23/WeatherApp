@@ -8,22 +8,22 @@
 import Foundation
 
 protocol WeatherLocalDataFetchable {
-    func fetch(completion:@escaping (Any) -> Void)
-    func save(data:Any)
+    func fetch(completion:@escaping (Result<Overview, Error>) -> Void)
+    func save(data:Overview)
 }
 
 
 final class WeatherLocalDataFetcher: WeatherLocalDataFetchable {
-    var store:LocalDataStorable
-    init(store:LocalDataStorable) {
+    var store:OverviewLocalDataStorable
+    init(store:OverviewLocalDataStorable) {
         self.store = store
     }
     
-    func fetch(completion:@escaping (Any) -> Void) {
+    func fetch(completion:@escaping (Result<Overview, Error>) -> Void) {
         store.fetch(completion: completion)
     }
     
-    func save(data:Any) {
+    func save(data:Overview) {
         store.set(data: data)
     }
 }

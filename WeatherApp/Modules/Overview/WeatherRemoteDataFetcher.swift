@@ -8,7 +8,7 @@
 import Foundation
 
 protocol WeatherRemoteDataFetchable {
-    func fetch(completion:@escaping (Any) -> Void)
+    func fetch(completion:@escaping (Overview?, Error?) -> Void)
 }
 
 final class WeatherRemoteDataFetcher: WeatherRemoteDataFetchable {
@@ -18,7 +18,7 @@ final class WeatherRemoteDataFetcher: WeatherRemoteDataFetchable {
         self.networkManager = networkManager
     }
     
-    func fetch(completion:@escaping (Any) -> Void) {
-        
+    func fetch(completion:@escaping (Overview?, Error?) -> Void) {
+        completion(nil, nil)
     }
 }

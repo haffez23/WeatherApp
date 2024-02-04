@@ -15,7 +15,7 @@ class NetworkManagerMock: NetworkManagerExectable{
     var invokedExecuteCount = 0
     var invokedExecuteDataResult: Data?
     
-    var errorData: Error?
+    var errorData: ErrorMock?
     var invokedExecuteWithErrorData:Data?
     
     func execute<T>(
@@ -24,6 +24,7 @@ class NetworkManagerMock: NetworkManagerExectable{
         success: @escaping (T) -> Void,
         failure: @escaping (Error) -> Void,
         errorDeserializer: ((Data, Error) throws -> Error)?) where T : Decodable {
+            invokedExecuteCount += 1
             if let errorData{
                 failure(errorData)
             }else if let invokedExecuteWithErrorData, let errorDeserializer{

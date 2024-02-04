@@ -11,7 +11,8 @@ import Foundation
 class OverviewPresenterMock: OverviewPresentable {
     var invokedPresent = false
     var invokedPresentCount = 0
-    func present(overview: Any) {
+    
+    func present(overview: Overview) {
         invokedPresent = true
         invokedPresentCount += 1
     }

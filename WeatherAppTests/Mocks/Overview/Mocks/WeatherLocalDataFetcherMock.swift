@@ -12,14 +12,15 @@ class WeatherLocalDataFetcherMock: WeatherLocalDataFetchable{
     var invokedFetch = false
     var invokedFetchCount = 0
     
-    func fetch(completion: @escaping (Any) -> Void) {
+    func fetch(completion: @escaping (Result<Overview, Error>) -> Void) {
         invokedFetch = true
         invokedFetchCount += 1
     }
     
     var invokedSave = false
     var invokedSaveCount = 0
-    func save(data: Any) {
+    
+    func save(data: WeatherApp.Overview) {
         invokedSave = true
         invokedSaveCount += 1
     }

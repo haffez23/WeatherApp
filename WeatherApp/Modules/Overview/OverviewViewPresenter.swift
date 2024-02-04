@@ -14,11 +14,11 @@ final class OverviewPresenter: OverviewPresentable {
         self.view = view
     }
     
-    func present(overview:Any) {
+    func present(overview:Overview) {
         view?.display(viewModel: OverviewViewModel(title: ""))
     }
 }
 
 protocol OverviewPresentable {
-    func present(overview:Any)
+    func present(overview:Overview)
 }

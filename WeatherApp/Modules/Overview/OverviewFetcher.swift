@@ -7,6 +7,11 @@
 
 import Foundation
 
+
+protocol WeatherFetchable {
+    func fetch()
+}
+
 final class WeatherFetcher: WeatherFetchable {
     private let weatherLocalDataFetcher:WeatherLocalDataFetchable
     private let weatherRemoteDataFetcher:WeatherRemoteDataFetchable
@@ -26,19 +31,20 @@ final class WeatherFetcher: WeatherFetchable {
     
     func fetch() {
         guard networkReachability.isReachable else {
-            weatherLocalDataFetcher.fetch {[weak self] data in
-                self?.overviewPresenter.present(overview: data)
+            weatherLocalDataFetcher.fetch {[weak self] result in
+                switch result {
+                    case .success(let overview):
+                        self?.overviewPresenter.present(overview: overview)
+                    case .failure(let failure):
+                        print("failure")
+                }
             }
             return
         }
-        weatherRemoteDataFetcher.fetch {[weak self] data in
-            self?.weatherLocalDataFetcher.save(data: data)
-            self?.overviewPresenter.present(overview: data)
+        weatherRemoteDataFetcher.fetch {[weak self] overview, error in
+            guard let overview = overview else {return}
+            self?.weatherLocalDataFetcher.save(data: overview)
+            self?.overviewPresenter.present(overview: overview)
         }
     }
-}
-
-
-protocol WeatherFetchable {
-    func fetch()
 }

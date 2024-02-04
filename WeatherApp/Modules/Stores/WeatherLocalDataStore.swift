@@ -7,16 +7,19 @@
 
 import Foundation
 
-class WeatherLocalDataStore: LocalDataStorable {
-    
-    var data:Any? = nil
-    
-    func fetch(completion:@escaping (Any) -> Void) {
-        guard let data else {return}
-        completion(data)
+class WeatherLocalDataStore: OverviewLocalDataStorable {
+    func fetch(completion: @escaping (Result<Overview, Error>) -> Void) {
+        if let data {
+            completion(.success(data))
+        }else{
+            completion(.failure(NSError()))
+        }
     }
     
-    func set(data:Any) {
+    
+    var data:Overview? = nil
+    
+    func set(data: Overview) {
         self.data = data
     }
 }

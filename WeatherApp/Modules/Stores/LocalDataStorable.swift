@@ -6,7 +6,7 @@
 //
 
 import Foundation
-protocol LocalDataStorable {
-    func fetch(completion:@escaping (Any) -> Void)
-    func set(data:Any)
+protocol OverviewLocalDataStorable {
+    func fetch(completion:@escaping (Result<Overview, Error>) -> Void)
+    func set(data:Overview)
 }

@@ -22,9 +22,9 @@ class NetworkReachabilityMock: NetworkReachabilityListenable {
     var invokedStartListening = false
     var invokedStartListeningCount = 0
     func startListening(_ completion: @escaping (Bool) -> Void) {
-        completion(isReachable)
         invokedStartListening = true
         invokedStartListeningCount += 1
+        completion(isReachable)
     }
     
     var invokedStopListening = false

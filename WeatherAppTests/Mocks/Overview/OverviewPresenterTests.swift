@@ -18,7 +18,7 @@ class OverviewPresenterTests: QuickSpec {
                 view: overviewViewableMock
             )
             
-            presenter.present(overview: "test")
+            presenter.present(overview: Overview(id: "1"))
             expect(overviewViewableMock.invokedDisplayCount).to(equal(1))
         }
     }
