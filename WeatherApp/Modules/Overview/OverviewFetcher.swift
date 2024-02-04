@@ -42,17 +42,3 @@ final class WeatherFetcher: WeatherFetchable {
 protocol WeatherFetchable {
     func fetch()
 }
-
-protocol WeatherLocalDataFetchable {
-    func fetch(completion:@escaping (Any) -> Void)
-    func save(data:Any)
-}
-
-protocol WeatherRemoteDataFetchable {
-    func fetch(completion:@escaping (Any) -> Void)
-}
-
-protocol LocalDataStorable {
-    func fetch(completion:@escaping (Any) -> Void)
-    func set(data:Any)
-}
