@@ -175,7 +175,6 @@
 		C651660E2B6D36F100ACE106 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				C651664D2B6F7B1300ACE106 /* Networking */,
 				C65166262B6E3ECF00ACE106 /* Core */,
 				C65166102B6D373E00ACE106 /* Common */,
 				C651660F2B6D36FD00ACE106 /* Overview */,
@@ -217,6 +216,7 @@
 		C65166262B6E3ECF00ACE106 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				C651664D2B6F7B1300ACE106 /* Networking */,
 				C65166272B6E3EEB00ACE106 /* NetworkReachability.swift */,
 			);
 			path = Core;
@@ -233,8 +233,7 @@
 		C651662A2B6E496400ACE106 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				C651662B2B6E499000ACE106 /* NetworkReachabilityMock.swift */,
-				C651663C2B6E5A2300ACE106 /* NetworkReachabilityStarterMock.swift */,
+				C65166582B6F9BFF00ACE106 /* Reachability */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -279,6 +278,15 @@
 				C651664F2B6F7B1300ACE106 /* Utils.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		C65166582B6F9BFF00ACE106 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				C651662B2B6E499000ACE106 /* NetworkReachabilityMock.swift */,
+				C651663C2B6E5A2300ACE106 /* NetworkReachabilityStarterMock.swift */,
+			);
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
