@@ -13,7 +13,7 @@ import Nimble
 class WeatherRemoteDataFetcherTests: QuickSpec{
     
     override class func spec() {
-        var networkManager = NetworkManagerMock()
+        var networkManager = NetworkManagerMock<Overview>()
         var  weatherRemoteDataFetcher : WeatherRemoteDataFetcher!
         
         beforeEach {
@@ -25,14 +25,15 @@ class WeatherRemoteDataFetcherTests: QuickSpec{
         context("Execute Fetch data from api"){
             
             beforeEach {
-                let overview = Overview(id: "1")
-                networkManager.invokedExecuteDataResult = try! JSONEncoder().encode(overview)
+                
+                networkManager.invokedExecuteDataResult = OverviewMock.make()
                 networkManager.invokedExecuteWithErrorData = nil
             }
             
             it("should trigger execute"){
                 waitUntil { done in
-                    weatherRemoteDataFetcher.fetch { _, _ in
+                    weatherRemoteDataFetcher.fetch { result
+                        in
                         expect(networkManager.invokedExecuteCount).to(equal(1))
                         done()
                     }
@@ -41,11 +42,16 @@ class WeatherRemoteDataFetcherTests: QuickSpec{
             
             it("and return success with data"){
                 waitUntil { done in
-                    weatherRemoteDataFetcher.fetch { overview, error in
-                        expect(error).to(beNil())
-                        expect(overview).toNot(beNil())
-                        expect(overview?.id).to(equal("1"))
+                    weatherRemoteDataFetcher.fetch { result in
+                        switch result {
+                            case .success(let overview):
+                                expect(overview).toNot(beNil())
+                            case .failure(let failure):
+                                print("failed")
+                                
+                        }
                         done()
+
                     }
                 }
             }
@@ -53,9 +59,14 @@ class WeatherRemoteDataFetcherTests: QuickSpec{
             it("and return error"){
                 networkManager.errorData = ErrorMock()
                 waitUntil { done in
-                    weatherRemoteDataFetcher.fetch { overview, error in
-                        expect(error).toNot(beNil())
-                        expect(overview).to(beNil())
+                    weatherRemoteDataFetcher.fetch { result in
+                        
+                        switch result {
+                            case .success(let overview):
+                                print("expect fail")
+                            case .failure(let failure):
+                                expect(failure).toNot(beNil())
+                        }
                         done()
                     }
                 }

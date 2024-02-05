@@ -8,12 +8,12 @@
 import Foundation
 @testable import WeatherApp
 
-class NetworkManagerMock: NetworkManagerExectable{
+class NetworkManagerMock<E>: NetworkManagerExectable{
     
     
     var invokedExecute = false
     var invokedExecuteCount = 0
-    var invokedExecuteDataResult: Data?
+    var invokedExecuteDataResult: E?
     
     var errorData: ErrorMock?
     var invokedExecuteWithErrorData:Data?
