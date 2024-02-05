@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Quick/Quick#how-to-install-quick",
       "state" : {
-        "branch" : "main",
-        "revision" : "45d50ef2f37a093751f79ef42a3e23f8ab1f1f75"
+        "revision" : "f2b5a06440ea87eba1a167cab37bf6496646c52e",
+        "version" : "1.3.4"
       }
     }
   ],

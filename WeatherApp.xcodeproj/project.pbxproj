@@ -21,9 +21,7 @@
 		C65166232B6D5E4000ACE106 /* OverviewFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65166222B6D5E4000ACE106 /* OverviewFetcher.swift */; };
 		C65166282B6E3EEB00ACE106 /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65166272B6E3EEB00ACE106 /* NetworkReachability.swift */; };
 		C651662C2B6E499000ACE106 /* NetworkReachabilityMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651662B2B6E499000ACE106 /* NetworkReachabilityMock.swift */; };
-		C651662F2B6E50D100ACE106 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = C651662E2B6E50D100ACE106 /* Nimble */; };
 		C65166322B6E531900ACE106 /* OverviewViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65166312B6E531900ACE106 /* OverviewViewControllerTests.swift */; };
-		C65166352B6E53D300ACE106 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = C65166342B6E53D300ACE106 /* Quick */; };
 		C65166372B6E58AA00ACE106 /* OverviewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65166362B6E58AA00ACE106 /* OverviewControllerTests.swift */; };
 		C651663A2B6E597800ACE106 /* WeatherFetcherMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65166392B6E597800ACE106 /* WeatherFetcherMock.swift */; };
 		C651663D2B6E5A2300ACE106 /* NetworkReachabilityStarterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651663C2B6E5A2300ACE106 /* NetworkReachabilityStarterMock.swift */; };
@@ -33,7 +31,6 @@
 		C65166452B6E5F5C00ACE106 /* OverviewPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65166442B6E5F5C00ACE106 /* OverviewPresenterMock.swift */; };
 		C65166472B6E713200ACE106 /* WeatherLocalDataFetcherMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65166462B6E713200ACE106 /* WeatherLocalDataFetcherMock.swift */; };
 		C65166492B6E716300ACE106 /* WeatherRemoteDataFetchableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65166482B6E716300ACE106 /* WeatherRemoteDataFetchableMock.swift */; };
-		C651664C2B6F78F300ACE106 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C651664B2B6F78F300ACE106 /* XCTest.framework */; };
 		C65166512B6F7B1300ACE106 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651664E2B6F7B1300ACE106 /* NetworkManager.swift */; };
 		C65166522B6F7B1300ACE106 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651664F2B6F7B1300ACE106 /* Utils.swift */; };
 		C65166532B6F7B1300ACE106 /* NetworkManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65166502B6F7B1300ACE106 /* NetworkManagerFactory.swift */; };
@@ -43,11 +40,21 @@
 		C651665F2B6FBD9100ACE106 /* WeatherRemoteDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651665E2B6FBD9100ACE106 /* WeatherRemoteDataFetcher.swift */; };
 		C65166612B6FBDCF00ACE106 /* WeatherLocalDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65166602B6FBDCF00ACE106 /* WeatherLocalDataFetcher.swift */; };
 		C65166642B6FBE6800ACE106 /* WeatherLocalDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65166632B6FBE6800ACE106 /* WeatherLocalDataStore.swift */; };
-		C65166672B6FBEBB00ACE106 /* LocalDataStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65166662B6FBEBB00ACE106 /* LocalDataStorable.swift */; };
 		C65166692B6FC0FD00ACE106 /* WeatherRemoteDataFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65166682B6FC0FD00ACE106 /* WeatherRemoteDataFetcherTests.swift */; };
 		C651666B2B6FC10F00ACE106 /* WeatherLocalDataFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651666A2B6FC10F00ACE106 /* WeatherLocalDataFetcherTests.swift */; };
 		C651666E2B6FC1EA00ACE106 /* WeatherLocalDataStoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651666D2B6FC1EA00ACE106 /* WeatherLocalDataStoreMock.swift */; };
 		C65166702B6FCCC700ACE106 /* Overview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651666F2B6FCCC700ACE106 /* Overview.swift */; };
+		C65166792B6FE9A100ACE106 /* DEVConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = C65166782B6FE9A100ACE106 /* DEVConfig.plist */; };
+		C651667B2B6FEB2500ACE106 /* PRODConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = C651667A2B6FEB2500ACE106 /* PRODConfig.plist */; };
+		C651667D2B6FEB3300ACE106 /* ConfigEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651667C2B6FEB3300ACE106 /* ConfigEnvironment.swift */; };
+		C651667F2B6FEDA000ACE106 /* EnvironmentSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651667E2B6FEDA000ACE106 /* EnvironmentSettings.swift */; };
+		C65166812B6FF56300ACE106 /* NetworkEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65166802B6FF56300ACE106 /* NetworkEnvironment.swift */; };
+		C65166842B70023600ACE106 /* OverviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65166832B70023600ACE106 /* OverviewRequest.swift */; };
+		C65166862B70194600ACE106 /* OverviewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65166852B70194600ACE106 /* OverviewMock.swift */; };
+		C65166872B701CA200ACE106 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C651664B2B6F78F300ACE106 /* XCTest.framework */; platformFilter = ios; };
+		C651668A2B701D3F00ACE106 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = C65166892B701D3F00ACE106 /* Nimble */; };
+		C651668F2B701D7400ACE106 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = C651668E2B701D7400ACE106 /* Quick */; };
+		C65166942B70CDC200ACE106 /* NetworkPersistedCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65166932B70CDC200ACE106 /* NetworkPersistedCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,11 +103,19 @@
 		C651665E2B6FBD9100ACE106 /* WeatherRemoteDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRemoteDataFetcher.swift; sourceTree = "<group>"; };
 		C65166602B6FBDCF00ACE106 /* WeatherLocalDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocalDataFetcher.swift; sourceTree = "<group>"; };
 		C65166632B6FBE6800ACE106 /* WeatherLocalDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocalDataStore.swift; sourceTree = "<group>"; };
-		C65166662B6FBEBB00ACE106 /* LocalDataStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataStorable.swift; sourceTree = "<group>"; };
 		C65166682B6FC0FD00ACE106 /* WeatherRemoteDataFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRemoteDataFetcherTests.swift; sourceTree = "<group>"; };
 		C651666A2B6FC10F00ACE106 /* WeatherLocalDataFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocalDataFetcherTests.swift; sourceTree = "<group>"; };
 		C651666D2B6FC1EA00ACE106 /* WeatherLocalDataStoreMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocalDataStoreMock.swift; sourceTree = "<group>"; };
 		C651666F2B6FCCC700ACE106 /* Overview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overview.swift; sourceTree = "<group>"; };
+		C65166782B6FE9A100ACE106 /* DEVConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DEVConfig.plist; sourceTree = "<group>"; };
+		C651667A2B6FEB2500ACE106 /* PRODConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PRODConfig.plist; sourceTree = "<group>"; };
+		C651667C2B6FEB3300ACE106 /* ConfigEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigEnvironment.swift; sourceTree = "<group>"; };
+		C651667E2B6FEDA000ACE106 /* EnvironmentSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentSettings.swift; sourceTree = "<group>"; };
+		C65166802B6FF56300ACE106 /* NetworkEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEnvironment.swift; sourceTree = "<group>"; };
+		C65166822B70016300ACE106 /* OverviewSuccessResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = OverviewSuccessResponse.json; sourceTree = "<group>"; };
+		C65166832B70023600ACE106 /* OverviewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewRequest.swift; sourceTree = "<group>"; };
+		C65166852B70194600ACE106 /* OverviewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewMock.swift; sourceTree = "<group>"; };
+		C65166932B70CDC200ACE106 /* NetworkPersistedCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPersistedCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,10 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C651664C2B6F78F300ACE106 /* XCTest.framework in Frameworks */,
 				C65166562B6F7B3500ACE106 /* Alamofire in Frameworks */,
-				C65166352B6E53D300ACE106 /* Quick in Frameworks */,
-				C651662F2B6E50D100ACE106 /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +131,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C651668F2B701D7400ACE106 /* Quick in Frameworks */,
+				C65166872B701CA200ACE106 /* XCTest.framework in Frameworks */,
+				C651668A2B701D3F00ACE106 /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +162,7 @@
 		C65165DA2B6D30C000ACE106 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				C65166772B6FE97200ACE106 /* Configuration */,
 				C651660D2B6D36CA00ACE106 /* AppDelegate */,
 				C651660E2B6D36F100ACE106 /* Modules */,
 			);
@@ -203,6 +219,7 @@
 				C651665E2B6FBD9100ACE106 /* WeatherRemoteDataFetcher.swift */,
 				C65166602B6FBDCF00ACE106 /* WeatherLocalDataFetcher.swift */,
 				C651666F2B6FCCC700ACE106 /* Overview.swift */,
+				C65166832B70023600ACE106 /* OverviewRequest.swift */,
 			);
 			path = Overview;
 			sourceTree = "<group>";
@@ -269,11 +286,13 @@
 		C651663B2B6E597C00ACE106 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				C65166822B70016300ACE106 /* OverviewSuccessResponse.json */,
 				C65166392B6E597800ACE106 /* WeatherFetcherMock.swift */,
 				C65166402B6E5C5A00ACE106 /* OverviewViewableMock.swift */,
 				C65166442B6E5F5C00ACE106 /* OverviewPresenterMock.swift */,
 				C65166462B6E713200ACE106 /* WeatherLocalDataFetcherMock.swift */,
 				C65166482B6E716300ACE106 /* WeatherRemoteDataFetchableMock.swift */,
+				C65166852B70194600ACE106 /* OverviewMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -289,9 +308,11 @@
 		C651664D2B6F7B1300ACE106 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				C65166802B6FF56300ACE106 /* NetworkEnvironment.swift */,
 				C65166502B6F7B1300ACE106 /* NetworkManagerFactory.swift */,
 				C651664E2B6F7B1300ACE106 /* NetworkManager.swift */,
 				C651664F2B6F7B1300ACE106 /* Utils.swift */,
+				C65166932B70CDC200ACE106 /* NetworkPersistedCache.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -318,7 +339,6 @@
 			isa = PBXGroup;
 			children = (
 				C65166632B6FBE6800ACE106 /* WeatherLocalDataStore.swift */,
-				C65166662B6FBEBB00ACE106 /* LocalDataStorable.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -329,6 +349,17 @@
 				C651666D2B6FC1EA00ACE106 /* WeatherLocalDataStoreMock.swift */,
 			);
 			path = Stores;
+			sourceTree = "<group>";
+		};
+		C65166772B6FE97200ACE106 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				C65166782B6FE9A100ACE106 /* DEVConfig.plist */,
+				C651667A2B6FEB2500ACE106 /* PRODConfig.plist */,
+				C651667C2B6FEB3300ACE106 /* ConfigEnvironment.swift */,
+				C651667E2B6FEDA000ACE106 /* EnvironmentSettings.swift */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,8 +379,6 @@
 			);
 			name = WeatherApp;
 			packageProductDependencies = (
-				C651662E2B6E50D100ACE106 /* Nimble */,
-				C65166342B6E53D300ACE106 /* Quick */,
 				C65166552B6F7B3500ACE106 /* Alamofire */,
 			);
 			productName = WeatherApp;
@@ -370,6 +399,10 @@
 				C65165F02B6D30C300ACE106 /* PBXTargetDependency */,
 			);
 			name = WeatherAppTests;
+			packageProductDependencies = (
+				C65166892B701D3F00ACE106 /* Nimble */,
+				C651668E2B701D7400ACE106 /* Quick */,
+			);
 			productName = WeatherAppTests;
 			productReference = C65165EE2B6D30C300ACE106 /* WeatherAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -403,9 +436,9 @@
 			);
 			mainGroup = C65165CF2B6D30C000ACE106;
 			packageReferences = (
-				C651662D2B6E50D100ACE106 /* XCRemoteSwiftPackageReference "Nimble" */,
-				C65166332B6E53D300ACE106 /* XCRemoteSwiftPackageReference "Quick" */,
 				C65166542B6F7B3500ACE106 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				C65166882B701D3F00ACE106 /* XCRemoteSwiftPackageReference "Nimble" */,
+				C651668D2B701D7400ACE106 /* XCRemoteSwiftPackageReference "Quick" */,
 			);
 			productRefGroup = C65165D92B6D30C000ACE106 /* Products */;
 			projectDirPath = "";
@@ -422,6 +455,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C65166792B6FE9A100ACE106 /* DEVConfig.plist in Resources */,
+				C651667B2B6FEB2500ACE106 /* PRODConfig.plist in Resources */,
 				C65165E82B6D30C300ACE106 /* LaunchScreen.storyboard in Resources */,
 				C65165E52B6D30C300ACE106 /* launcher.xcassets in Resources */,
 			);
@@ -444,19 +479,23 @@
 				C65166232B6D5E4000ACE106 /* OverviewFetcher.swift in Sources */,
 				C65166642B6FBE6800ACE106 /* WeatherLocalDataStore.swift in Sources */,
 				C65165DC2B6D30C000ACE106 /* AppDelegate.swift in Sources */,
-				C65166672B6FBEBB00ACE106 /* LocalDataStorable.swift in Sources */,
+				C651667D2B6FEB3300ACE106 /* ConfigEnvironment.swift in Sources */,
 				C65166612B6FBDCF00ACE106 /* WeatherLocalDataFetcher.swift in Sources */,
+				C651667F2B6FEDA000ACE106 /* EnvironmentSettings.swift in Sources */,
 				C65166512B6F7B1300ACE106 /* NetworkManager.swift in Sources */,
 				C65166532B6F7B1300ACE106 /* NetworkManagerFactory.swift in Sources */,
 				C65166162B6D3D4700ACE106 /* ViewDidLoadControllable.swift in Sources */,
 				C651665F2B6FBD9100ACE106 /* WeatherRemoteDataFetcher.swift in Sources */,
 				C65166142B6D3C1000ACE106 /* OverviewWeatherFactory.swift in Sources */,
+				C65166942B70CDC200ACE106 /* NetworkPersistedCache.swift in Sources */,
 				C65166702B6FCCC700ACE106 /* Overview.swift in Sources */,
 				C651661F2B6D5D7800ACE106 /* OverviewViewPresenter.swift in Sources */,
+				C65166842B70023600ACE106 /* OverviewRequest.swift in Sources */,
 				C65166212B6D5E0400ACE106 /* OverviewViewModel.swift in Sources */,
 				C65166522B6F7B1300ACE106 /* Utils.swift in Sources */,
 				C651661D2B6D5D4E00ACE106 /* OverviewController.swift in Sources */,
 				C65166282B6E3EEB00ACE106 /* NetworkReachability.swift in Sources */,
+				C65166812B6FF56300ACE106 /* NetworkEnvironment.swift in Sources */,
 				C65166122B6D3AB000ACE106 /* OverviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,6 +518,7 @@
 				C65166372B6E58AA00ACE106 /* OverviewControllerTests.swift in Sources */,
 				C651666B2B6FC10F00ACE106 /* WeatherLocalDataFetcherTests.swift in Sources */,
 				C65166492B6E716300ACE106 /* WeatherRemoteDataFetchableMock.swift in Sources */,
+				C65166862B70194600ACE106 /* OverviewMock.swift in Sources */,
 				C651663A2B6E597800ACE106 /* WeatherFetcherMock.swift in Sources */,
 				C65166412B6E5C5A00ACE106 /* OverviewViewableMock.swift in Sources */,
 				C651666E2B6FC1EA00ACE106 /* WeatherLocalDataStoreMock.swift in Sources */,
@@ -566,7 +606,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEVELOPMENT DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -764,22 +804,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C651662D2B6E50D100ACE106 /* XCRemoteSwiftPackageReference "Nimble" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Quick/Nimble.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-		C65166332B6E53D300ACE106 /* XCRemoteSwiftPackageReference "Quick" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Quick/Quick#how-to-install-quick";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		C65166542B6F7B3500ACE106 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -788,23 +812,39 @@
 				minimumVersion = 5.8.1;
 			};
 		};
+		C65166882B701D3F00ACE106 /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		C651668D2B701D7400ACE106 /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick#how-to-install-quick";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C651662E2B6E50D100ACE106 /* Nimble */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C651662D2B6E50D100ACE106 /* XCRemoteSwiftPackageReference "Nimble" */;
-			productName = Nimble;
-		};
-		C65166342B6E53D300ACE106 /* Quick */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C65166332B6E53D300ACE106 /* XCRemoteSwiftPackageReference "Quick" */;
-			productName = Quick;
-		};
 		C65166552B6F7B3500ACE106 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C65166542B6F7B3500ACE106 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		C65166892B701D3F00ACE106 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C65166882B701D3F00ACE106 /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+		C651668E2B701D7400ACE106 /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C651668D2B701D7400ACE106 /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
