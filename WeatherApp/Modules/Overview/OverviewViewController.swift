@@ -68,7 +68,7 @@ extension OverviewViewController{
         
         view.addSubview(modeSwitch)
         modeSwitch.translatesAutoresizingMaskIntoConstraints = false
-        modeSwitch.isOn = view.overrideUserInterfaceStyle == .dark
+        modeSwitch.isOn = overrideUserInterfaceStyle != .light
         modeSwitch.addTarget(self, action: #selector(toggleDarkMode), for: .valueChanged)
                 
         NSLayoutConstraint.activate([

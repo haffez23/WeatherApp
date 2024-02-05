@@ -273,7 +273,6 @@
 				C651669F2B70FEC800ACE106 /* Appearance */,
 				C65166952B70F59C00ACE106 /* Localization */,
 				C651664D2B6F7B1300ACE106 /* Networking */,
-				C65166272B6E3EEB00ACE106 /* NetworkReachability.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -337,6 +336,7 @@
 		C651664D2B6F7B1300ACE106 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				C65166272B6E3EEB00ACE106 /* NetworkReachability.swift */,
 				C65166802B6FF56300ACE106 /* NetworkEnvironment.swift */,
 				C65166502B6F7B1300ACE106 /* NetworkManagerFactory.swift */,
 				C651664E2B6F7B1300ACE106 /* NetworkManager.swift */,

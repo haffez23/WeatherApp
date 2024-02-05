@@ -9,7 +9,6 @@ import Foundation
 
 final class AppearanceController: ViewDidToggleControllable {
     private let appearanceSwitcher:AppearanceSwitchable
-    var isDark:Bool = false
     init(
         appearanceSwitcher:AppearanceSwitchable
     ) {
