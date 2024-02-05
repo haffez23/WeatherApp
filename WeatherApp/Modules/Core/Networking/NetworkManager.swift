@@ -38,8 +38,12 @@ extension NetworkManagerExectable{
 }
 class NetworkManager: NetworkManagerExectable {
     private let session: URLSession
+    private let environment: NetworkEnvironment
     
-    init(session: URLSession = URLSession.shared) {
+    init(session: URLSession = URLSession.shared,
+         environment: NetworkEnvironment
+    ) {
+        self.environment = environment
         self.session = session
     }
     
@@ -73,7 +77,7 @@ class NetworkManager: NetworkManagerExectable {
                                 deserializedResponse
                             )
                         }catch{
-                            print("ERRO", error)
+                            print(error)
                             failure(NetworkError.DeserializationDecodingError)
                         }
                     case .failure(let error):
@@ -86,12 +90,16 @@ class NetworkManager: NetworkManagerExectable {
     func prepare(request: NetworkRequest) throws -> DataRequest  {
             // Build absolute url
         let fullUrl: URL
-        if request.path.starts(with: "http"), let validUrl = URL(string: request.path) {
+        print("PATH", environment.buildUrl(fromPath: request.path))
+        if let validUrl = URL(string: environment.buildUrl(fromPath: request.path)) {
             fullUrl = validUrl
         } else {
-            throw NetworkError.noData
+            throw NetworkError.BadRequest
         }
         
+        let fullHeaders = HTTPHeaders(environment.headers.merging(request.headers ?? [:]) { $1 })
+        
+        print("HEADERS", environment.headers)
         
             // Build the alamofire request
         switch request.parameters {
@@ -101,7 +109,7 @@ class NetworkManager: NetworkManagerExectable {
                     method: request.method,
                     parameters: params,
                     encoding: JSONEncoding.default,
-                    headers: HTTPHeaders(request.headers ?? [:])
+                    headers: fullHeaders
                 )
                 
             case .url(let params):
@@ -110,7 +118,7 @@ class NetworkManager: NetworkManagerExectable {
                     method: request.method,
                     parameters: params,
                     encoding: URLEncoding(arrayEncoding: .noBrackets),
-                    headers: HTTPHeaders(request.headers ?? [:])
+                    headers: fullHeaders
                 )
         }
         
@@ -119,5 +127,5 @@ class NetworkManager: NetworkManagerExectable {
 
     // NetworkError Enum
 enum NetworkError: Error {
-    case noData, PrepareRequestFailedError, DeserializationDecodingError
+    case noData, PrepareRequestFailedError, DeserializationDecodingError, BadRequest
 }

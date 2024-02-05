@@ -15,7 +15,7 @@ final class NetworkManagerFactory {
         if let networkManager = NetworkManagerFactory.networkManager{
             return networkManager
         }
-        NetworkManagerFactory.networkManager = NetworkManager()
+        NetworkManagerFactory.networkManager = NetworkManager(environment: .weatherApi)
         return NetworkManagerFactory.networkManager!
     }
 }
