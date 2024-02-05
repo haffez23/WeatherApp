@@ -13,47 +13,53 @@ import Quick
 class WeatherLocalDataFetcherTests: QuickSpec{
 
     override func spec() {
-        var weatherLocalDataStore : WeatherLocalDataStoreMock!
-        var  weatherLocalDataFetcher : WeatherLocalDataFetcher!
-        
-//        describe("WeatherLocalDataFetcher"){
-//            beforeEach {
-//                weatherLocalDataStore = WeatherLocalDataStoreMock()
-//                
-//                weatherLocalDataFetcher = WeatherLocalDataFetcher(
-//                    store: weatherLocalDataStore
-//                )
-//            }
-//            
-//            context("Fetch data from local store"){
-//                let mockHeadline = Headline(
-//                    effectiveDate: Date(),effectiveEpochDate: 0, severity: 0,
-//                    text: "", category: "", endDate: Date(), endEpochDate: 0,
-//                    mobileLink: "", link: ""
-//                )
-//                weatherLocalDataStore.resultData = Overview(
-//                    headline: mockHeadline,
-//                    dailyForecasts: []
-//                )
-//
-//                waitUntil { done in
-//                    
-//                    weatherLocalDataFetcher.fetch { result  in
-//                        expect(weatherLocalDataStore.invokedFetchCount).to(equal(1))
-//                        done()
-//                    }
-//                }
-//            }
-//            
-//            context("Save data to local store"){
-//                let mockHeadline = Headline(
-//                    effectiveDate: Date(),effectiveEpochDate: 0, severity: 0,
-//                    text: "", category: "", endDate: Date(), endEpochDate: 0,
-//                    mobileLink: "", link: ""
-//                )
-//                weatherLocalDataFetcher.save(data: Overview(headline: mockHeadline, dailyForecasts: []))
-//                expect(weatherLocalDataStore.invokedFetchCount).to(equal(1))
-//            }
-//        }
+        describe("WeatherLocalDataFetcher"){
+            var weatherLocalDataStore : WeatherLocalDataStoreMock!
+            var  weatherLocalDataFetcher : WeatherLocalDataFetcher!
+            context("Fetch data from local store"){
+                beforeEach {
+                    weatherLocalDataStore = WeatherLocalDataStoreMock()
+                    weatherLocalDataFetcher = WeatherLocalDataFetcher(
+                        store: weatherLocalDataStore
+                    )
+                    
+                }
+                
+                it("should return data from store"){
+                    weatherLocalDataStore.resultData = OverviewMock.make()
+                    waitUntil { done in
+                        weatherLocalDataFetcher.fetch { result  in
+                            expect(result).to(beSuccess())
+                            expect(weatherLocalDataStore.invokedFetchCount).to(equal(1))
+                            done()
+                        }
+                    }
+                }
+                it("and return error"){
+                    weatherLocalDataStore.errorData = ErrorMock()
+                    weatherLocalDataStore.resultData = nil
+                    waitUntil { done in
+                        weatherLocalDataFetcher.fetch { result in
+                            expect(result).to(beFailure())
+                            expect(weatherLocalDataStore.invokedFetchCount).to(equal(1))
+                            done()
+                        }
+                    }
+                }
+            }
+            
+            context("Save data to local store"){
+                beforeEach {
+                    weatherLocalDataStore = WeatherLocalDataStoreMock()
+                    weatherLocalDataFetcher = WeatherLocalDataFetcher(
+                        store: weatherLocalDataStore
+                    )
+                }
+                it("should save data"){
+                    weatherLocalDataFetcher.save(data: OverviewMock.make())
+                    expect(weatherLocalDataStore.invokedSetCount).to(equal(1))
+                }
+            }
+        }
     }
 }

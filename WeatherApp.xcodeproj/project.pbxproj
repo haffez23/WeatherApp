@@ -63,6 +63,8 @@
 		C65166A92B7117EE00ACE106 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65166A82B7117EE00ACE106 /* Color.swift */; };
 		C65166AB2B71194F00ACE106 /* AppColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C65166AA2B71194F00ACE106 /* AppColors.xcassets */; };
 		C65166AD2B711DC200ACE106 /* ViewDidToggleControllableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65166AC2B711DC200ACE106 /* ViewDidToggleControllableMock.swift */; };
+		C65D06182B71667500A4B3C1 /* WeatherLocalDataStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65D06172B71667500A4B3C1 /* WeatherLocalDataStoreTests.swift */; };
+		C65D061A2B7167A400A4B3C1 /* CachableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65D06192B7167A400A4B3C1 /* CachableMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +135,8 @@
 		C65166A82B7117EE00ACE106 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		C65166AA2B71194F00ACE106 /* AppColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppColors.xcassets; sourceTree = "<group>"; };
 		C65166AC2B711DC200ACE106 /* ViewDidToggleControllableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDidToggleControllableMock.swift; sourceTree = "<group>"; };
+		C65D06172B71667500A4B3C1 /* WeatherLocalDataStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocalDataStoreTests.swift; sourceTree = "<group>"; };
+		C65D06192B7167A400A4B3C1 /* CachableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachableMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +304,7 @@
 				C65166422B6E5E5A00ACE106 /* WeatherFetcherTests.swift */,
 				C65166362B6E58AA00ACE106 /* OverviewControllerTests.swift */,
 				C651663E2B6E5AF800ACE106 /* OverviewPresenterTests.swift */,
+				C65D06172B71667500A4B3C1 /* WeatherLocalDataStoreTests.swift */,
 				C65166682B6FC0FD00ACE106 /* WeatherRemoteDataFetcherTests.swift */,
 				C651666A2B6FC10F00ACE106 /* WeatherLocalDataFetcherTests.swift */,
 			);
@@ -316,6 +321,7 @@
 				C65166462B6E713200ACE106 /* WeatherLocalDataFetcherMock.swift */,
 				C65166482B6E716300ACE106 /* WeatherRemoteDataFetchableMock.swift */,
 				C65166852B70194600ACE106 /* OverviewMock.swift */,
+				C65D06192B7167A400A4B3C1 /* CachableMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -584,11 +590,13 @@
 				C65165F32B6D30C300ACE106 /* WeatherAppTests.swift in Sources */,
 				C651665B2B6F9C7800ACE106 /* NetworkManagerMock.swift in Sources */,
 				C651663F2B6E5AF800ACE106 /* OverviewPresenterTests.swift in Sources */,
+				C65D061A2B7167A400A4B3C1 /* CachableMock.swift in Sources */,
 				C651662C2B6E499000ACE106 /* NetworkReachabilityMock.swift in Sources */,
 				C65166692B6FC0FD00ACE106 /* WeatherRemoteDataFetcherTests.swift in Sources */,
 				C651663D2B6E5A2300ACE106 /* NetworkReachabilityStarterMock.swift in Sources */,
 				C65166192B6D3FC200ACE106 /* ViewDidLoadControllableMock.swift in Sources */,
 				C65166372B6E58AA00ACE106 /* OverviewControllerTests.swift in Sources */,
+				C65D06182B71667500A4B3C1 /* WeatherLocalDataStoreTests.swift in Sources */,
 				C651666B2B6FC10F00ACE106 /* WeatherLocalDataFetcherTests.swift in Sources */,
 				C65166492B6E716300ACE106 /* WeatherRemoteDataFetchableMock.swift in Sources */,
 				C65166862B70194600ACE106 /* OverviewMock.swift in Sources */,

@@ -12,6 +12,10 @@ protocol OverviewLocalDataStorable {
     func set(data:Overview)
 }
 
+enum CacheError: Error {
+    case noData
+}
+
 class WeatherLocalDataStore: OverviewLocalDataStorable {
     let cache:Cachable
     
@@ -28,8 +32,7 @@ class WeatherLocalDataStore: OverviewLocalDataStorable {
         {
             completion(.success(overview))
         }else{
-            print("No data")
-            completion(.failure(NSError()))
+            completion(.failure(CacheError.noData))
         }
     }
     
