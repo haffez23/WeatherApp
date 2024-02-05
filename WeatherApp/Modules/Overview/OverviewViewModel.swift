@@ -8,5 +8,6 @@
 import Foundation
 
 struct OverviewViewModel {
-    let title: String
+    let headline: String
+    let temperature: String
 }

@@ -10,10 +10,8 @@ import UIKit
 
 final class OverviewViewController: UIViewController {
         // MARK: - UI
-    var label: UILabel = {
-        let label = UILabel()
-        return label
-    }()
+    var headlineLabel: UILabel!
+    var temperatureLabel: UILabel!
         // MARK: - Deps
     fileprivate let didLoadController:ViewDidLoadControllable
     
@@ -30,14 +28,38 @@ final class OverviewViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(label)
+        setupUI()
         didLoadController.didLoadViews()
+    }
+}
+
+extension OverviewViewController{
+    private func setupUI() {
+        headlineLabel = UILabel()
+        headlineLabel.translatesAutoresizingMaskIntoConstraints = false
+        headlineLabel.numberOfLines = 0
+        view.addSubview(headlineLabel)
+        
+        temperatureLabel = UILabel()
+        temperatureLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(temperatureLabel)
+        
+        NSLayoutConstraint.activate([
+            headlineLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            headlineLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            headlineLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            
+            temperatureLabel.topAnchor.constraint(equalTo: headlineLabel.bottomAnchor, constant: 20),
+            temperatureLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            temperatureLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        ])
     }
 }
 
 extension OverviewViewController: OverviewViewable {
     func display(viewModel: OverviewViewModel) {
-        label.text = viewModel.title
+        headlineLabel.text = viewModel.headline
+        temperatureLabel.text = viewModel.temperature
     }
 }
 

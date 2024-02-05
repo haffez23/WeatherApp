@@ -8,14 +8,19 @@
 import Foundation
 
 final class OverviewPresenter: OverviewPresentable {
-    private weak var view: OverviewViewable?
+    weak var view: OverviewViewable?
     
     init(view: OverviewViewable?) {
         self.view = view
     }
     
     func present(overview:Overview) {
-        view?.display(viewModel: OverviewViewModel(title: ""))
+        let temperature = overview.dailyForecasts.first?.temperature
+        let maxTemperature = "\(temperature?.maximum.value ?? 0) \(temperature?.maximum.unit ?? "")"
+        let overviewModel = OverviewViewModel(
+            headline: overview.headline.text,
+            temperature: maxTemperature)
+        view?.display(viewModel: overviewModel)
     }
 }
 
