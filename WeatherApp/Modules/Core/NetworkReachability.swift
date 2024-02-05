@@ -26,7 +26,6 @@ final class NetworkReachability:NetworkReachabilityListenable {
 
 extension NetworkReachabilityManager: NetworkReachabilityListenable {
     var isReachable: Bool {
-        return false
         switch status{
             case .reachable(_): return true
             default: return false
