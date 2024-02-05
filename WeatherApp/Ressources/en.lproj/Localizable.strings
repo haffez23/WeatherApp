@@ -7,3 +7,4 @@
 */
 
 "overview.title" = "Weather";
+"overview.appearance_hint" = "Light/Dark";

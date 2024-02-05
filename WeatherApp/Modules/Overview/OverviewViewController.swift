@@ -11,6 +11,7 @@ import UIKit
 final class OverviewViewController: UIViewController {
         // MARK: - UI
     var titleLabel: UILabel!
+    var appearanceHintLabel: UILabel!
     var headlineLabel: UILabel!
     var temperatureLabel: UILabel!
     let modeSwitch = UISwitch()
@@ -40,19 +41,30 @@ final class OverviewViewController: UIViewController {
 
 extension OverviewViewController{
     private func setupUI() {
+        view.backgroundColor = Color.background.color
+        
         titleLabel = UILabel()
         titleLabel.text = Localization.title.localized
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.textColor = Color.text.color
         view.addSubview(titleLabel)
 
         headlineLabel = UILabel()
         headlineLabel.translatesAutoresizingMaskIntoConstraints = false
         headlineLabel.numberOfLines = 0
+        headlineLabel.textColor = Color.text.color
         view.addSubview(headlineLabel)
         
         temperatureLabel = UILabel()
         temperatureLabel.translatesAutoresizingMaskIntoConstraints = false
+        temperatureLabel.textColor = Color.text.color
         view.addSubview(temperatureLabel)
+        
+        appearanceHintLabel = UILabel()
+        appearanceHintLabel.translatesAutoresizingMaskIntoConstraints = false
+        appearanceHintLabel.textColor = Color.text.color
+        appearanceHintLabel.text = Localization.appearanceHint.localized
+        view.addSubview(appearanceHintLabel)
         
         view.addSubview(modeSwitch)
         modeSwitch.translatesAutoresizingMaskIntoConstraints = false
@@ -73,7 +85,10 @@ extension OverviewViewController{
             temperatureLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             
             modeSwitch.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            modeSwitch.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+            modeSwitch.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            
+            appearanceHintLabel.bottomAnchor.constraint(equalTo: modeSwitch.topAnchor, constant: -20),
+            appearanceHintLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
     
@@ -96,5 +111,6 @@ extension OverviewViewController: OverviewViewable {
 extension OverviewViewController{
     private enum Localization: String, Localizable{
         case title = "overview.title"
+        case appearanceHint = "overview.appearance_hint"
     }
 }
