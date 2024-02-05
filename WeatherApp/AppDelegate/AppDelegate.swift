@@ -6,11 +6,12 @@
     //
 
 import UIKit
+import Alamofire
 
 @main
 class AppDelegate: UIResponder {
     var window: UIWindow?
-    private var reachabilityManager:NetworkReachability?
+    private var reachabilityManager:NetworkReachabilityListenable?
 }
 
 
@@ -21,7 +22,9 @@ extension AppDelegate: UIApplicationDelegate{
     ) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UINavigationController(
-            rootViewController: OverviewWeatherFactory(reachabilityStarter: self).make()
+            rootViewController: OverviewWeatherFactory(
+                reachabilityStarter: self
+            ).make()
         )
         window?.makeKeyAndVisible()
         return true
@@ -30,9 +33,9 @@ extension AppDelegate: UIApplicationDelegate{
 
 extension AppDelegate: NetworkReachabilityStarter {
     func startMonitoring() {
-        reachabilityManager = NetworkReachability()
-        reachabilityManager?.startListening({ isReachable in
-            print("isReachable: \(isReachable)")
+        reachabilityManager = NetworkReachabilityManager()
+        reachabilityManager?.startListening({ status in
+            status ? print("Reachable") : print("Unreachable")
         })
     }
 }

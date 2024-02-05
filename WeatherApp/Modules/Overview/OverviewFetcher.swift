@@ -15,12 +15,12 @@ protocol WeatherFetchable {
 final class WeatherFetcher: WeatherFetchable {
     private let weatherLocalDataFetcher:WeatherLocalDataFetchable
     private let weatherRemoteDataFetcher:WeatherRemoteDataFetchable
-    private let networkReachability:NetworkReachabilityListenable
+    private let networkReachability:NetworkReachabilityListenable?
     private let overviewPresenter:OverviewPresentable
     init(
         weatherLocalDataFetcher:WeatherLocalDataFetchable,
         weatherRemoteDataFetcher:WeatherRemoteDataFetchable,
-        networkReachability:NetworkReachabilityListenable,
+        networkReachability:NetworkReachabilityListenable?,
         overviewPresenter:OverviewPresentable
     ) {
         self.weatherLocalDataFetcher = weatherLocalDataFetcher
@@ -30,7 +30,7 @@ final class WeatherFetcher: WeatherFetchable {
     }
     
     func fetch() {
-        guard networkReachability.isReachable else {
+        guard networkReachability?.isReachable == true else {
             weatherLocalDataFetcher.fetch {[weak self] result in
                 switch result {
                     case .success(let overview):
@@ -41,10 +41,16 @@ final class WeatherFetcher: WeatherFetchable {
             }
             return
         }
-        weatherRemoteDataFetcher.fetch {[weak self] overview, error in
-            guard let overview = overview else {return}
-            self?.weatherLocalDataFetcher.save(data: overview)
-            self?.overviewPresenter.present(overview: overview)
+        weatherRemoteDataFetcher.fetch {[weak self] result in
+            switch result {
+                case .success(let overview):
+                    self?.weatherLocalDataFetcher.save(data: overview)
+                    self?.overviewPresenter.present(overview: overview)
+                    print("Success")
+                case .failure(let error):
+                    print("Fail to load weather overview \(error)")
+            }
+            
         }
     }
 }

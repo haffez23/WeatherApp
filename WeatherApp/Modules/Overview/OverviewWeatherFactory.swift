@@ -6,10 +6,9 @@
     //
 
 import Foundation
-
+import Alamofire
 class OverviewWeatherFactory {
     private let reachabilityStarter:NetworkReachabilityStarter
-    
     init( reachabilityStarter: NetworkReachabilityStarter) {
         self.reachabilityStarter = reachabilityStarter
     }
@@ -18,7 +17,7 @@ class OverviewWeatherFactory {
         var vc: OverviewViewController?
         
         let weatherLocalDataFetcher = WeatherLocalDataFetcher(
-            store: WeatherLocalDataStore()
+            store: WeatherLocalDataStore(cache: NetworkPersistedCache())
         )
         
         let weatherRemoteDataFetcher = WeatherRemoteDataFetcher(
@@ -31,7 +30,7 @@ class OverviewWeatherFactory {
             weatherFetcher: WeatherFetcher(
                 weatherLocalDataFetcher: weatherLocalDataFetcher,
                 weatherRemoteDataFetcher: weatherRemoteDataFetcher,
-                networkReachability: NetworkReachability(),
+                networkReachability: NetworkReachabilityManager(),
                 overviewPresenter: overviewPresenter
             ),
             reachabilityStarter: reachabilityStarter
@@ -40,6 +39,7 @@ class OverviewWeatherFactory {
         vc = OverviewViewController(
             didLoadController: overviewController
         )
+        overviewPresenter.view = vc
         
         return vc!
     }

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import Alamofire
 protocol NetworkReachabilityStarter {
     func startMonitoring()
 }
@@ -14,7 +14,6 @@ protocol NetworkReachabilityStarter {
 protocol NetworkReachabilityListenable {
     var isReachable: Bool { get }
     func startListening(_ completion: @escaping (Bool) -> Void)
-    func stopListening()
 }
 
 final class NetworkReachability:NetworkReachabilityListenable {
@@ -23,8 +22,20 @@ final class NetworkReachability:NetworkReachabilityListenable {
     func startListening(_ completion: @escaping (Bool) -> Void) {
         completion(isReachable)
     }
+}
+
+extension NetworkReachabilityManager: NetworkReachabilityListenable {
+    var isReachable: Bool {
+        return false
+        switch status{
+            case .reachable(_): return true
+            default: return false
+        }
+    }
     
-    func stopListening() {
-        isReachable = false
+    func startListening(_ completion: @escaping (Bool) -> Void) {
+        self.startListening(onUpdatePerforming: {[weak self] _ in
+            completion(self?.isReachable ?? false)
+        })
     }
 }
