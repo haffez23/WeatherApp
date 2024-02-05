@@ -23,7 +23,8 @@ extension AppDelegate: UIApplicationDelegate{
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UINavigationController(
             rootViewController: OverviewWeatherFactory(
-                reachabilityStarter: self
+                reachabilityStarter: self,
+                appearanceSwitcher: self
             ).make()
         )
         window?.makeKeyAndVisible()
@@ -37,5 +38,15 @@ extension AppDelegate: NetworkReachabilityStarter {
         reachabilityManager?.startListening({ status in
             status ? print("Reachable") : print("Unreachable")
         })
+    }
+}
+
+extension AppDelegate:AppearanceSwitchable{
+    func switchToDark() {
+        window?.overrideUserInterfaceStyle = .dark
+    }
+    
+    func switchToLight() {
+        window?.overrideUserInterfaceStyle = .light
     }
 }

@@ -9,8 +9,13 @@ import Foundation
 import Alamofire
 class OverviewWeatherFactory {
     private let reachabilityStarter:NetworkReachabilityStarter
-    init( reachabilityStarter: NetworkReachabilityStarter) {
+    private let appearanceSwitcher:AppearanceSwitchable
+    init(
+        reachabilityStarter: NetworkReachabilityStarter,
+        appearanceSwitcher: AppearanceSwitchable)
+    {
         self.reachabilityStarter = reachabilityStarter
+        self.appearanceSwitcher = appearanceSwitcher
     }
     
     func make() -> OverviewViewController {
@@ -37,7 +42,10 @@ class OverviewWeatherFactory {
         )
         
         vc = OverviewViewController(
-            didLoadController: overviewController
+            didLoadController: overviewController,
+            didToggleController: AppearanceController(
+                appearanceSwitcher: appearanceSwitcher
+            )
         )
         overviewPresenter.view = vc
         

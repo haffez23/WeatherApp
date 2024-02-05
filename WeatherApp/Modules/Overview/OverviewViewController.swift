@@ -13,13 +13,16 @@ final class OverviewViewController: UIViewController {
     var titleLabel: UILabel!
     var headlineLabel: UILabel!
     var temperatureLabel: UILabel!
-    
+    let modeSwitch = UISwitch()
+
         // MARK: - Deps
     fileprivate let didLoadController:ViewDidLoadControllable
+    fileprivate let didToggleController:ViewDidToggleControllable
     
         // MARK: - Lifecycle
-    init(didLoadController:ViewDidLoadControllable) {
+    init(didLoadController:ViewDidLoadControllable, didToggleController:ViewDidToggleControllable) {
         self.didLoadController = didLoadController
+        self.didToggleController = didToggleController
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -51,6 +54,11 @@ extension OverviewViewController{
         temperatureLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(temperatureLabel)
         
+        view.addSubview(modeSwitch)
+        modeSwitch.translatesAutoresizingMaskIntoConstraints = false
+        modeSwitch.isOn = view.overrideUserInterfaceStyle == .dark
+        modeSwitch.addTarget(self, action: #selector(toggleDarkMode), for: .valueChanged)
+                
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
@@ -62,8 +70,15 @@ extension OverviewViewController{
             
             temperatureLabel.topAnchor.constraint(equalTo: headlineLabel.bottomAnchor, constant: 20),
             temperatureLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            temperatureLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+            temperatureLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            
+            modeSwitch.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            modeSwitch.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
         ])
+    }
+    
+    @objc func toggleDarkMode(_ sender: UISwitch) {
+        didToggleController.didToggle(isOn: sender.isOn)
     }
 }
 
