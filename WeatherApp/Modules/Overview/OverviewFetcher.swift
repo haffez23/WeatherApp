@@ -35,7 +35,7 @@ final class WeatherFetcher: WeatherFetchable {
                 switch result {
                     case .success(let overview):
                         self?.overviewPresenter.present(overview: overview)
-                    case .failure(let failure):
+                    case .failure(_):
                         print("failure")
                 }
             }

@@ -6,6 +6,7 @@
     //
 
 import Foundation
+import Nimble
 @testable import WeatherApp
 
 class WeatherRemoteDataFetcherMock: WeatherRemoteDataFetchable {
@@ -22,9 +23,12 @@ class WeatherRemoteDataFetcherMock: WeatherRemoteDataFetchable {
         
         if let errorData{
             completion(.failure(errorData))
+        }else if let resultData{
+            completion(.success(resultData))
         }else{
-            completion(.success(resultData!))
+            completion(.failure(ErrorMock()))
         }
+        
     }
 
 }
