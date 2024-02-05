@@ -10,8 +10,10 @@ import UIKit
 
 final class OverviewViewController: UIViewController {
         // MARK: - UI
+    var titleLabel: UILabel!
     var headlineLabel: UILabel!
     var temperatureLabel: UILabel!
+    
         // MARK: - Deps
     fileprivate let didLoadController:ViewDidLoadControllable
     
@@ -35,6 +37,11 @@ final class OverviewViewController: UIViewController {
 
 extension OverviewViewController{
     private func setupUI() {
+        titleLabel = UILabel()
+        titleLabel.text = Localization.title.localized
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(titleLabel)
+
         headlineLabel = UILabel()
         headlineLabel.translatesAutoresizingMaskIntoConstraints = false
         headlineLabel.numberOfLines = 0
@@ -45,7 +52,11 @@ extension OverviewViewController{
         view.addSubview(temperatureLabel)
         
         NSLayoutConstraint.activate([
-            headlineLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            
+            headlineLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             headlineLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             headlineLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             
@@ -56,6 +67,10 @@ extension OverviewViewController{
     }
 }
 
+protocol OverviewViewable:AnyObject {
+    func display(viewModel: OverviewViewModel)
+}
+
 extension OverviewViewController: OverviewViewable {
     func display(viewModel: OverviewViewModel) {
         headlineLabel.text = viewModel.headline
@@ -63,6 +78,8 @@ extension OverviewViewController: OverviewViewable {
     }
 }
 
-protocol OverviewViewable:AnyObject {
-    func display(viewModel: OverviewViewModel)
+extension OverviewViewController{
+    private enum Localization: String, Localizable{
+        case title = "overview.title"
+    }
 }

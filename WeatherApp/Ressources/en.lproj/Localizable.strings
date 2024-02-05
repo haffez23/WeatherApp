@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  WeatherApp
+
+  Created by Mohamed Haffez on 05/02/2024.
+  
+*/
+
+"overview.title" = "Weather";
