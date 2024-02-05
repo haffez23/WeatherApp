@@ -11,7 +11,7 @@ import Quick
 @testable import WeatherApp
 
 class OverviewPresenterTests: QuickSpec {
-    override class func spec() {
+    override func spec() {
         describe("OverviewPresenter") {
             let overviewViewableMock = OverviewViewableMock()
             let presenter = OverviewPresenter(

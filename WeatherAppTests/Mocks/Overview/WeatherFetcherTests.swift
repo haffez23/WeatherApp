@@ -11,7 +11,8 @@ import Quick
 import Nimble
 
 class WeatherFetcherTests: QuickSpec {
-    override class func spec() {
+    
+    override func spec() {
         describe("WeatherFetcher") {
             let presenter = OverviewPresenterMock()
             

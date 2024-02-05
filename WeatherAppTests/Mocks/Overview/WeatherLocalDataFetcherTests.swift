@@ -12,7 +12,7 @@ import Quick
 
 class WeatherLocalDataFetcherTests: QuickSpec{
 
-    override class func spec() {
+    override func spec() {
         var weatherLocalDataStore : WeatherLocalDataStoreMock!
         var  weatherLocalDataFetcher : WeatherLocalDataFetcher!
         

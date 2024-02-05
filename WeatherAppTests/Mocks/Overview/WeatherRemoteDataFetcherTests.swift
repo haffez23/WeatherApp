@@ -12,7 +12,7 @@ import Nimble
 
 class WeatherRemoteDataFetcherTests: QuickSpec{
     
-    override class func spec() {
+    override func spec() {
         var networkManager = NetworkManagerMock<Overview>()
         var  weatherRemoteDataFetcher : WeatherRemoteDataFetcher!
         

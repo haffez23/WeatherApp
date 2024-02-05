@@ -11,7 +11,7 @@ import Quick
 @testable import WeatherApp
 
 class OverviewControllerTests: QuickSpec {
-    override class func spec() {
+    override  func spec() {
         describe("OverviewController") {
             let weatherFetcher = WeatherFetcherMock()
             let reachabilityStarter = NetworkReachabilityStarterMock()
